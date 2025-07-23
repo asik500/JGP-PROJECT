@@ -1,4 +1,4 @@
-name: Build and deploy Python app to Azure Web App - JG-ERP-App
+name: Build and deploy Python app to Azure Web App - JGP-ERP-App
 
 on:
   push:
@@ -67,7 +67,7 @@ jobs:
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'JG-ERP-App'
+          app-name: 'JGP-ERP-App'
           slot-name: 'Production'
           package: release.zip
 

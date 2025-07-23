@@ -55,7 +55,7 @@ jobs:
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: jg-erp-app
+          app-name: jgp-erp-app
           slot-name: production
           package: .
 
