@@ -56,18 +56,13 @@ jobs:
       - name: 📂 Unzip artifact
         run: unzip release.zip
 
-      - name: 🔐 Login to Azure with Service Principal
+      - name: 🔐 Login to Azure with OIDC
         uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          auth-type: SERVICE_PRINCIPAL
-          allow-no-subscriptions: false
-          enable-AzPSSession: false
-          environment: azurecloud
-          audience: api://AzureADTokenExchange
+          auth-type: OIDC
 
       - name: 🚀 Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -75,6 +70,12 @@ jobs:
           app-name: 'JGP-ERP-App'
           slot-name: 'Production'
           package: release.zip
+
+
+
+
+
+
 
 
 
